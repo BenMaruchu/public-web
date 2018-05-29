@@ -24,7 +24,7 @@ const clientConfig = {
   },
 
   resolve: {
-    extensions: ['.css', '.js', '.jsx'],
+    extensions: ['.css', '.js', '.jsx', '.test.js'],
     modules: [
       __dirname,
       path.resolve(__dirname, '..', 'src', 'components'),

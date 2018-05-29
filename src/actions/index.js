@@ -1,6 +1,6 @@
-import API from 'API';
+import API from '../api/index';
 import moment from 'moment';
-import { MAP_DATA_RELOAD, MAP_DATA_SEARCH_BY_TICKETNO } from 'utils/constants';
+import { MAP_DATA_RELOAD, MAP_DATA_SEARCH_BY_TICKETNO } from '../utils/constants';
 
 export const FETCH_MAP_DATA = 'fetch_map_data';
 export const FETCH_MAP_DATA_COMPLETE = 'fetch_map_data_complete';
@@ -21,7 +21,7 @@ export const SEARCH_TICKET_NUM = 'search_ticket_number';
 export const SEARCH_TICKET_NUM_RESET = 'search_ticket_number_reset';
 export const RECEIVE_SR_SUMMARY = 'receive_service_request_summary';
 
-const receiveServiceRequests = serviceRequests => ({
+export const receiveServiceRequests = serviceRequests => ({
   type: RECEIVE_SERVICEREQUESTS,
   serviceRequests,
 });
