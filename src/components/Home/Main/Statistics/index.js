@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import moment from 'moment';
 import { connect } from 'react-redux';
-import { fetchServices } from 'actions';
-import API from 'API';
 import classnames from 'classnames/bind';
+import { fetchServices } from '../../../../actions';
+import API from '../../../../api/index';
 import styles from './styles.scss';
-
 
 const cx = classnames.bind(styles);
 

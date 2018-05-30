@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { Map, TileLayer, GeoJSON } from 'react-leaflet';
 import { divIcon, marker } from 'leaflet';
-import { getServiceRequests } from 'actions';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import classnames from 'classnames/bind';
+import { getServiceRequests } from '../../../actions';
 import Statistic from './Statistics';
 import styles from './styles.scss';
 import './styles.css';
