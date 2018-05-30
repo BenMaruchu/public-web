@@ -1,5 +1,5 @@
 
-import { RECEIVE_STATUSES, TOGGLE_STATUS, RESET_STATUSES } from 'actions';
+import { RECEIVE_STATUSES, TOGGLE_STATUS, RESET_STATUSES } from '../actions';
 
 const statusFilter = (state = { statuses: [] }, action) => {
   switch (action.type) {

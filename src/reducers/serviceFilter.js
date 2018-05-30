@@ -1,4 +1,4 @@
-import { RECEIVE_SERVICES, TOGGLE_SERVICE, RESET_SERVICES } from 'actions';
+import { RECEIVE_SERVICES, TOGGLE_SERVICE, RESET_SERVICES } from '../actions';
 
 
 const serviceFilter = (state = { services: [] }, action) => {
