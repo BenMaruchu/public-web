@@ -60,6 +60,7 @@ describe('Jurisdiction Filter ', () => {
     };
     expect(jurisdictionFilter(initialState, action)).toEqual(expectOutput)
   });
+
   it('should handle RESET_JURISDICTION action', () => {
     const initialState = {
       jurisdictions: [
@@ -93,4 +94,5 @@ describe('Jurisdiction Filter ', () => {
     };
     expect(jurisdictionFilter(initialState, action)).toEqual(expectOutput)
   });
+
 });
