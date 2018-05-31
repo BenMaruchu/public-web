@@ -1,4 +1,4 @@
-import { createStore, applyMiddleware } from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import { routerMiddleware } from 'react-router-redux';
 import reducers from './reducers';
@@ -8,7 +8,9 @@ function init(history) {
   // Build the middleware for intercepting and dispatching navigation actions
   const navMiddleware = routerMiddleware(history);
 
-  const store = createStore(reducers, applyMiddleware(thunk, navMiddleware));
+  const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+  const store = createStore(reducers, composeEnhancers(applyMiddleware(thunk, navMiddleware)));
 
   if (module.hot) {
     module.hot.accept('./reducers/index.js', () => {
