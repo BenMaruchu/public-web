@@ -6,7 +6,7 @@ import {
   toggleJurisdiction,
   toggleStatus,
   toggleService,
-} from 'actions';
+} from '../../../../actions';
 import MapDateFilter from '../MapDateFilter';
 import Status from './status';
 import Issue from './issue';
