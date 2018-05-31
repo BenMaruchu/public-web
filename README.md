@@ -80,15 +80,3 @@ npm run start
     * [Chrome Web Store](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?hl=en)
 2. For Mozilla Firefox
     * [Mozilla Addon Store](https://addons.mozilla.org/en-US/firefox/addon/remotedev/)
-
-
-```javascript
-import { createStore,applyMiddleware,compose} from 'redux';
-
-const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-const store = createStore(reducer,composeEnhancer(
-  // Pass all the middlewares used
-  applyMiddleware(...middlewares)
-));
-
-```
