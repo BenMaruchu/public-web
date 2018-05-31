@@ -1,6 +1,6 @@
+import moment from 'moment';
 import dateFilter, { initialState } from '../dateFilter';
 import MAP_DATE_FILTER_CHANGE from './../../actions/index';
-import moment from 'moment';
 
 describe('Date Filter', () => {
 
