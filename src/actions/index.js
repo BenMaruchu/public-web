@@ -34,7 +34,7 @@ const receiveJurisdictions = jurisdictions => ({ type: RECEIVE_JURISDICTIONS, ju
 
 export const resetJurisdictions = () => ({ type: RESET_JURISDICTIONS });
 
-const receiveStatuses = statuses => ({ type: RECEIVE_STATUSES, statuses });
+export const receiveStatuses = statuses => ({ type: RECEIVE_STATUSES, statuses });
 
 export const resetStatuses = () => ({ type: RESET_STATUSES });
 
