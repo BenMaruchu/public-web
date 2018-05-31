@@ -1,4 +1,4 @@
-import { MAP_DATE_FILTER_CHANGE } from '../actions/index';
+import { MAP_DATE_FILTER_CHANGE } from 'actions';
 
 import moment from 'moment';
 
