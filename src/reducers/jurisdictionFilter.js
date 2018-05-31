@@ -1,4 +1,4 @@
-import { RECEIVE_JURISDICTIONS, TOGGLE_JURISDICTION, RESET_JURISDICTIONS } from 'actions';
+import { RECEIVE_JURISDICTIONS, TOGGLE_JURISDICTION, RESET_JURISDICTIONS } from '../actions';
 
 const jurisdictionFilter = (state = { jurisdictions: [] }, action) => {
   switch (action.type) {

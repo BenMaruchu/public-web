@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import classnames from 'classnames/bind';
 import { connect } from 'react-redux';
-import { toggleService, getServiceRequests, resetSearchTicketNum } from 'actions';
 import MapKey from './mapKey';
 import styles from './styles.scss';
+import { toggleService, getServiceRequests, resetSearchTicketNum } from '../../../../actions';
 
 
 const cx = classnames.bind(styles);

@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import MapKey from './mapKey';
 import { Provider } from 'react-redux';
 
-import store from 'store';
+import store from '../../../../store';
 
 import SRMapLegend from './index.jsx';
 

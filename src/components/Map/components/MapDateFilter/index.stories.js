@@ -1,12 +1,10 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { Provider } from 'react-redux';
-import store from 'store';
-import 'react-dates/initialize';
-import DateFilter from './index.jsx';
-
 import moment from 'moment';
-
+import { Provider } from 'react-redux';
+import 'react-dates/initialize';
+import store from '../../../../store';
+import DateFilter from './index.jsx';
 
 const handleDatesChange = ({ startDate, endDate }) => {
   console.log(startDate);

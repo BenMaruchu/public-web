@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { DateRangePicker } from 'react-dates';
 import 'react-dates/lib/css/_datepicker.css';
+import { connect } from 'react-redux';
 import {
   dateFilterChange,
   getServiceRequests,
   resetSearchTicketNum,
   reloadSRSummary,
-} from 'actions';
-import { connect } from 'react-redux';
+} from '../../../../actions';
 
 import './react_dates_overrides.css';
 

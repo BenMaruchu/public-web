@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import classnames from 'classnames/bind';
 // import Button from 'Button';
 import { connect } from 'react-redux';
-import { searchSRByTicketNo } from 'actions';
+import { searchSRByTicketNo } from '../../../../actions';
 import styles from './styles.scss';
 
 const cx = classnames.bind(styles);
