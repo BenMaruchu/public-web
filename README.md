@@ -73,7 +73,7 @@ npm run start
     $ npm run install
     ```
 
-## Installing Redux devTools
+## Install Redux devTools Browser Extension
 
 > **Install Extension for your browser**
 1. For Google Chrome
@@ -81,7 +81,7 @@ npm run start
 2. For Mozilla Firefox
     * [Mozilla Addon Store](https://addons.mozilla.org/en-US/firefox/addon/remotedev/)
 
-> **Usage inside the app**
+
 ```javascript
 import { createStore,applyMiddleware,compose} from 'redux';
 
