@@ -4,7 +4,6 @@
 import React, { Component, Fragment } from 'react';
 import classnames from 'classnames/bind';
 import { connect } from 'react-redux';
-import { unselectMapPoint } from 'actions';
 import Moment from 'react-moment';
 import moment from 'moment';
 // import the core library.
@@ -17,6 +16,7 @@ import 'echarts/lib/component/tooltip';
 import 'echarts/lib/component/title';
 import Lightbox from 'react-images';
 import Popup from 'reactjs-popup';
+import { unselectMapPoint } from '../../../../actions';
 import styles from './styles.scss';
 
 const cx = classnames.bind(styles);

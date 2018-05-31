@@ -1,4 +1,4 @@
-import { RECEIVE_SERVICEREQUESTS } from 'actions';
+import { RECEIVE_SERVICEREQUESTS } from '../actions';
 
 const serviceRequest = (state = [], action) => {
   switch (action.type) {

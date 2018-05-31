@@ -1,6 +1,5 @@
-import { MAP_DATE_FILTER_CHANGE } from 'actions';
-
 import moment from 'moment';
+import { MAP_DATE_FILTER_CHANGE } from '../actions';
 
 const startDate = moment().subtract(1, 'months').startOf('date');
 const endDate = moment();
