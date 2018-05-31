@@ -8,7 +8,7 @@ import {
   resetJurisdictions,
   resetServices,
   resetSearchTicketNum,
-} from 'actions';
+} from '../../../../actions';
 import MapFilter from '../MapFilter';
 import FilterBtn from '../FilterBtn';
 import styles from './styles.scss';

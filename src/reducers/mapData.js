@@ -1,4 +1,4 @@
-import { FETCH_MAP_DATA, FETCH_MAP_DATA_COMPLETE } from 'actions';
+import { FETCH_MAP_DATA, FETCH_MAP_DATA_COMPLETE } from '../actions';
 
 const mapData = (state = { loading: false, dataFound: true }, action) => {
   switch (action.type) {
