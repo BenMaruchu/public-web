@@ -1,5 +1,5 @@
-import API from '../api/index';
 import moment from 'moment';
+import API from '../api/index';
 import { MAP_DATA_RELOAD, MAP_DATA_SEARCH_BY_TICKETNO } from '../utils/constants';
 
 export const FETCH_MAP_DATA = 'fetch_map_data';

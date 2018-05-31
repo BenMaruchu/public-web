@@ -90,7 +90,7 @@
     "build": "NODE_ENV=production webpack --config config/webpack.config.prod.js --progress --profile --colors",
     "predev": "rm -rf public/dist",
     "test": "jest",
-    "test:watch":"jest --watch",
+    "test:watch": "jest --watch",
     "storybook": "node storybook-server.js",
     "build-storybook": "build-storybook"
   },
