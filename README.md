@@ -72,3 +72,11 @@ npm run start
     $ git checkout <previous commit> -- npm run.lock
     $ npm run install
     ```
+
+## Install Redux devTools Browser Extension
+
+> **Install Extension for your browser**
+1. For Google Chrome
+    * [Chrome Web Store](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?hl=en)
+2. For Mozilla Firefox
+    * [Mozilla Addon Store](https://addons.mozilla.org/en-US/firefox/addon/remotedev/)
