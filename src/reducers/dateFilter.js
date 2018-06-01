@@ -1,11 +1,14 @@
-import { MAP_DATE_FILTER_CHANGE } from 'actions';
-
 import moment from 'moment';
+import { MAP_DATE_FILTER_CHANGE } from '../actions';
 
 const startDate = moment().subtract(1, 'months').startOf('date');
 const endDate = moment();
 
-const mapFilter = (state = { startDate, endDate }, action) => {
+export const initialState = {
+  startDate, endDate
+};
+
+const mapFilter = (state = initialState, action) => {
   switch (action.type) {
     case MAP_DATE_FILTER_CHANGE:
       return { ...state, startDate: action.startDate, endDate: action.endDate };

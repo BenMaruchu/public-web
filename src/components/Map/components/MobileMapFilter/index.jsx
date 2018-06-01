@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import classnames from 'classnames/bind';
-import { getServiceRequests, resetSearchTicketNum } from 'actions';
+import { getServiceRequests, resetSearchTicketNum } from '../../../../actions';
 import MapFilter from '../MapFilter';
 import styles from './styles.scss';
 

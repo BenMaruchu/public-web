@@ -26,17 +26,8 @@ const clientConfig = {
   resolve: {
     extensions: ['.css', '.js', '.jsx', '.test.js'],
     modules: [
-      __dirname,
-      path.resolve(__dirname, '..', 'src', 'components'),
       'node_modules',
-      'bower_components',
     ],
-    alias: {
-      API: path.resolve(__dirname, '../src/api/'),
-      actions: path.resolve(__dirname, '../src/actions'),
-      reducers: path.resolve(__dirname, '../src/reducers'),
-      utils: path.resolve(__dirname, '../src/utils'),
-    },
   },
   /* eslint indent:1 */
   module: {
