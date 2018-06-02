@@ -9,10 +9,10 @@ describe('Map Data Test', () => {
   });
 
   it('should handle FETCH_MAP_DATA action', () => {
-    const initialState = { loading: false, title: '' }
+    const previousState = { loading: false, title: '' }
     const expectOutput = { loading: true, title: '' }
 
-    expect(mapData(initialState, {
+    expect(mapData(previousState, {
       type: FETCH_MAP_DATA,
       loading: true,
       title: ''
@@ -20,9 +20,9 @@ describe('Map Data Test', () => {
   });
 
   it('should handle FETCH_MAP_DATA_COMPLETE action', () => {
-    const initialState = { loading: true, dataFound: false }
+    const previousState = { loading: true, dataFound: false }
     const expectOutput = { loading: false, dataFound: true }
-    expect(mapData(initialState, {
+    expect(mapData(previousState, {
       type: FETCH_MAP_DATA_COMPLETE,
       loading: false,
       dataFound: true
