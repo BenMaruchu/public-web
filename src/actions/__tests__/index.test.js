@@ -6,7 +6,7 @@ describe('Action Creators', () => {
 
     const expected = {
       type: actions.RECEIVE_SERVICEREQUESTS,
-      serviceRequests
+      serviceRequests,
     };
 
     expect(actions.receiveServiceRequests(serviceRequests)).toEqual(expected);
