@@ -1,0 +1,10 @@
+language:node_js
+
+node_js:
+  - "8"
+
+sudo:false
+
+scripts:
+  - npm run lint
+  - npm test
