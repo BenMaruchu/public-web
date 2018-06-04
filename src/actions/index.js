@@ -44,7 +44,7 @@ const fetchMapData = (title = MAP_DATA_RELOAD) => ({
   title,
 });
 
-const receiveSRSummary = summary => ({ type: RECEIVE_SR_SUMMARY, summary });
+export const receiveSRSummary = summary => ({ type: RECEIVE_SR_SUMMARY, summary });
 
 const receiveDateChange = (startDate, endDate) => ({
   type: MAP_DATE_FILTER_CHANGE,
