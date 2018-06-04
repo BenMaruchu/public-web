@@ -5,7 +5,7 @@ import {
   SEARCH_TICKET_NUM,
   SEARCH_TICKET_NUM_RESET,
   RECEIVE_SR_SUMMARY,
-} from '../../actions';
+} from '../../actions/index';
 
 describe('selectMapPoint reducer', () => {
   it('should return the initialState', () => {

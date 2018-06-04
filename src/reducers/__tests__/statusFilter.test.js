@@ -1,5 +1,5 @@
 import reducer from '../statusFilter';
-import {RECEIVE_STATUSES, TOGGLE_STATUS, RESET_STATUSES, RECEIVE_SR_SUMMARY} from '../../actions';
+import {RECEIVE_STATUSES, TOGGLE_STATUS, RESET_STATUSES, RECEIVE_SR_SUMMARY} from '../../actions/index';
 
 describe('statusFilter reducer', () => {
 

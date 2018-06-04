@@ -1,5 +1,5 @@
 import reducer from '../serviceRequests';
-import { RECEIVE_SERVICEREQUESTS } from '../../actions';
+import { RECEIVE_SERVICEREQUESTS } from '../../actions/index';
 
 describe('serviceRequest reducer', () => {
   it('should return initial state', () => {
