@@ -9,7 +9,7 @@ describe('Jurisdiction Filter ', () => {
   });
 
   it('should handle RECEIVE_SERVICES action', () => {
-    const initialState = {
+    const previousState = {
       services: [
         {
           id: 1,
@@ -19,13 +19,13 @@ describe('Jurisdiction Filter ', () => {
     };
     const action = {
       type: RECEIVE_SERVICES,
-      services: initialState.services
+      services: previousState.services
     }
-    expect(serviceFilter(initialState, action)).toEqual(initialState);
+    expect(serviceFilter(previousState, action)).toEqual(previousState);
   });
 
   it('should handle TOGGLE_SERVICE action', () => {
-    const initialState = {
+    const previousState = {
       services: [
         {
           id: 1,
@@ -46,11 +46,11 @@ describe('Jurisdiction Filter ', () => {
       type: TOGGLE_SERVICE,
       id: 1
     };
-    expect(serviceFilter(initialState, action)).toEqual(expectOutput)
+    expect(serviceFilter(previousState, action)).toEqual(expectOutput)
   });
 
   it('should handle RESET_SERVICE action', () => {
-    const initialState = {
+    const previousState = {
       services: [
         {
           id: 1,
@@ -72,7 +72,7 @@ describe('Jurisdiction Filter ', () => {
       type: TOGGLE_SERVICE,
       id: 1
     };
-    expect(serviceFilter(initialState, action)).toEqual(expectOutput)
+    expect(serviceFilter(previousState, action)).toEqual(expectOutput)
   });
 
 });
