@@ -34,7 +34,7 @@ const receiveJurisdictions = jurisdictions => ({ type: RECEIVE_JURISDICTIONS, ju
 
 export const resetJurisdictions = () => ({ type: RESET_JURISDICTIONS });
 
-const receiveStatuses = statuses => ({ type: RECEIVE_STATUSES, statuses });
+export const receiveStatuses = statuses => ({ type: RECEIVE_STATUSES, statuses });
 
 export const resetStatuses = () => ({ type: RESET_STATUSES });
 
@@ -44,7 +44,7 @@ const fetchMapData = (title = MAP_DATA_RELOAD) => ({
   title,
 });
 
-const receiveSRSummary = summary => ({ type: RECEIVE_SR_SUMMARY, summary });
+export const receiveSRSummary = summary => ({ type: RECEIVE_SR_SUMMARY, summary });
 
 const receiveDateChange = (startDate, endDate) => ({
   type: MAP_DATE_FILTER_CHANGE,
