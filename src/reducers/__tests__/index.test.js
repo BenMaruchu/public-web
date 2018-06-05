@@ -1,4 +1,4 @@
-import {selectedMapPoint, ticketNum, SRSummary} from '../index';
+import { selectedMapPoint, ticketNum, SRSummary } from '../index';
 import {
   SELECT_MAP_POINT,
   UNSELECT_MAP_POINT,
@@ -17,10 +17,10 @@ describe('selectMapPoint reducer', () => {
 
   it('should handle SELECT_MAP_POINT', () => {
     const prevTest = null;
-    const expected = [{h: 'hello', n: 'name', b: 'ball'}];
+    const expected = [{ h: 'hello', n: 'name', b: 'ball' }];
     const action = {
       type: SELECT_MAP_POINT,
-      selected: [{h: 'hello', n: 'name', b: 'ball'}],
+      selected: [{ h: 'hello', n: 'name', b: 'ball' }],
     };
     const state = selectedMapPoint(prevTest, action);
     expect(state).toEqual(expected);
@@ -31,7 +31,7 @@ describe('selectMapPoint reducer', () => {
 
     const expectedOutput = null;
 
-    const action = {type: UNSELECT_MAP_POINT};
+    const action = { type: UNSELECT_MAP_POINT };
 
     expect(selectedMapPoint(prevState, action)).toEqual(expectedOutput);
   });
@@ -45,12 +45,11 @@ describe('selectMapPoint reducer', () => {
   });
 
   it('should handle SEARCH_TICKET_NUM', () => {
-
     const prevState = undefined;
 
-    const expectedOutput = {c: 'check', n: 'number', s: [1, 2, 3]};
+    const expectedOutput = { c: 'check', n: 'number', s: [1, 2, 3] };
 
-    const action = {type: SEARCH_TICKET_NUM, ticketNum: expectedOutput};
+    const action = { type: SEARCH_TICKET_NUM, ticketNum: expectedOutput };
 
     expect(ticketNum(prevState, action)).toEqual(expectedOutput);
   });
@@ -60,11 +59,11 @@ describe('selectMapPoint reducer', () => {
 
     const expectedOutput = '';
 
-    const action = {type: SEARCH_TICKET_NUM_RESET};
+    const action = { type: SEARCH_TICKET_NUM_RESET };
     expect(ticketNum(prevState, action)).toEqual(expectedOutput);
   });
 
-  it('should return the initial state', () => {
+  it('should return the initial state for new SRsummary', () => {
     const initialState = {};
 
     const action = {};
@@ -73,12 +72,10 @@ describe('selectMapPoint reducer', () => {
   });
 
   it('should handle the RECEIVE_SR_SUMMARY', () => {
+    const expected = { aveSr: [4, 87], r: 'request', s: 'summary' };
 
-    const expected = {aveSr: [4, 87], r: 'request', s: 'summary'};
-
-    const action = {type: RECEIVE_SR_SUMMARY, summary: expected};
+    const action = { type: RECEIVE_SR_SUMMARY, summary: expected };
 
     expect(SRSummary({}, action)).toEqual(expected);
-
   });
 });
