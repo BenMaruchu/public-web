@@ -34,10 +34,6 @@ describe('Jurisdiction Filter ', () => {
           id: 1,
           name: 'Test 1',
         },
-        {
-          id: 2,
-          name: 'Test 2',
-        },
       ],
     };
     const expectOutput = {
@@ -46,10 +42,6 @@ describe('Jurisdiction Filter ', () => {
           id: 1,
           name: 'Test 1',
           selected: true,
-        },
-        {
-          id: 2,
-          name: 'Test 2',
         },
       ],
     };
@@ -66,14 +58,11 @@ describe('Jurisdiction Filter ', () => {
         {
           id: 1,
           name: 'Test 1',
-          selected: true,
-        },
-        {
-          id: 2,
-          name: 'Test 2',
+          selected: false,
         },
       ],
     };
+
     const expectOutput = {
       jurisdictions: [
         {
@@ -81,12 +70,9 @@ describe('Jurisdiction Filter ', () => {
           name: 'Test 1',
           selected: false,
         },
-        {
-          id: 2,
-          name: 'Test 2',
-        },
       ],
     };
+
     const action = {
       type: RESET_JURISDICTIONS,
       id: 1,
