@@ -69,7 +69,7 @@ describe('actions', () => {
     expect(action.summary).toBe(data);
   });
 
-  it('should create an action to to receive SR summary', () => {
+  it('should create an action to receive SR summary', () => {
     const dateOne = '30-05-2018';
     const dateTwo = '29-05-2018';
     const action = receiveDateChange(dateOne, dateTwo);
@@ -110,5 +110,4 @@ describe('actions', () => {
     expect(action.type).toBe(TOGGLE_STATUS);
     expect(action.id).toBe(data);
   });
-
 });

@@ -1,6 +1,5 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import faker from 'faker';
 import 'react-select/dist/react-select.css';
 import { Provider } from 'react-redux';
 

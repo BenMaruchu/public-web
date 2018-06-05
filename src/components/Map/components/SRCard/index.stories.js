@@ -1,9 +1,8 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import faker from 'faker';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
-
+import SRCard from './index.jsx';
 
 const issue = {
   service: {
@@ -24,8 +23,6 @@ const issue = {
 };
 
 const store = createStore((state = { selectedMapPoint: issue }) => state);
-
-import SRCard from './index.jsx';
 
 storiesOf('SR Card', module)
   .addDecorator(story => (<Provider store={store}>{story()}</Provider>))
