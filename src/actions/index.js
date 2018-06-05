@@ -1,6 +1,7 @@
+
 import moment from 'moment';
-import API from '../api/index';
 import { MAP_DATA_RELOAD, MAP_DATA_SEARCH_BY_TICKETNO } from '../utils/constants';
+import API from '../api/index';
 
 export const FETCH_MAP_DATA = 'fetch_map_data';
 export const FETCH_MAP_DATA_COMPLETE = 'fetch_map_data_complete';
@@ -30,7 +31,10 @@ const receiveServices = services => ({ type: RECEIVE_SERVICES, services });
 
 export const resetServices = () => ({ type: RESET_SERVICES });
 
-const receiveJurisdictions = jurisdictions => ({ type: RECEIVE_JURISDICTIONS, jurisdictions });
+export const receiveJurisdictions = jurisdictions => ({
+  type: RECEIVE_JURISDICTIONS,
+  jurisdictions,
+});
 
 export const resetJurisdictions = () => ({ type: RESET_JURISDICTIONS });
 
@@ -38,7 +42,7 @@ export const receiveStatuses = statuses => ({ type: RECEIVE_STATUSES, statuses }
 
 export const resetStatuses = () => ({ type: RESET_STATUSES });
 
-const fetchMapData = (title = MAP_DATA_RELOAD) => ({
+export const fetchMapData = (title = MAP_DATA_RELOAD) => ({
   type: FETCH_MAP_DATA,
   loading: true,
   title,
@@ -46,7 +50,7 @@ const fetchMapData = (title = MAP_DATA_RELOAD) => ({
 
 export const receiveSRSummary = summary => ({ type: RECEIVE_SR_SUMMARY, summary });
 
-const receiveDateChange = (startDate, endDate) => ({
+export const receiveDateChange = (startDate, endDate) => ({
   type: MAP_DATE_FILTER_CHANGE,
   startDate,
   endDate,
@@ -58,7 +62,7 @@ export const fetchMapDataComplete = (dataFound = true) => ({
   dataFound,
 });
 
-const searchTicketNum = ticketNum => ({
+export const searchTicketNum = ticketNum => ({
   type: SEARCH_TICKET_NUM,
   ticketNum,
 });
