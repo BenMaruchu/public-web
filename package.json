@@ -91,7 +91,7 @@
     "dev": "node development.js",
     "build": "NODE_ENV=production webpack --config config/webpack.config.prod.js --progress --profile --colors",
     "predev": "rm -rf public/dist",
-    "lint":"eslint src",
+    "lint": "eslint src",
     "test": "jest --maxWorkers=4",
     "test:watch": "jest --watch",
     "storybook": "node storybook-server.js",
