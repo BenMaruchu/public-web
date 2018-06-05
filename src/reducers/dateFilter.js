@@ -5,7 +5,7 @@ const startDate = moment().subtract(1, 'months').startOf('date');
 const endDate = moment();
 
 export const initialState = {
-  startDate, endDate
+  startDate, endDate,
 };
 
 const mapFilter = (state = initialState, action) => {
