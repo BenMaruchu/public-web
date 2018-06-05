@@ -3,7 +3,6 @@ import dateFilter, { initialState } from '../dateFilter';
 import MAP_DATE_FILTER_CHANGE from './../../actions/index';
 
 describe('Date Filter', () => {
-
   const startDate = moment().subtract(1, 'months').startOf('date');
   const endDate = moment();
 
@@ -14,8 +13,8 @@ describe('Date Filter', () => {
   it('should handle MAP_DATE_FILTER_CHANGE action', () => {
     expect(dateFilter({ startDate, endDate }, {
       type: MAP_DATE_FILTER_CHANGE,
-      startDate: startDate,
-      endDate: endDate
+      startDate: moment,
+      endDate: moment,
     })).toEqual({ startDate, endDate });
   });
 });

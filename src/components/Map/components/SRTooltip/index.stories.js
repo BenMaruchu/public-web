@@ -1,6 +1,5 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import faker from 'faker';
 
 import SRTooltip from './index.jsx';
 
