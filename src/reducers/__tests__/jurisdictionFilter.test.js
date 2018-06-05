@@ -8,18 +8,7 @@ describe('Jurisdiction Filter ', () => {
   });
 
   it('should handle RECEIVE_JURISDICTIONS action', () => {
-    const initialState = {
-      jurisdictions: [
-        {
-          id: 1,
-          name: 'Test 1',
-        },
-        {
-          id: 2,
-          name: 'Test 2',
-        },
-      ],
-    };
+    const initialState = { jurisdictions: [{ id: 1, name: 'Test 1' }] };
     const action = {
       type: RECEIVE_JURISDICTIONS,
       jurisdictions: initialState.jurisdictions,
@@ -28,55 +17,18 @@ describe('Jurisdiction Filter ', () => {
   });
 
   it('should handle TOGGLE_JURISDICTION action', () => {
-    const initialState = {
-      jurisdictions: [
-        {
-          id: 1,
-          name: 'Test 1',
-        },
-      ],
-    };
-    const expectOutput = {
-      jurisdictions: [
-        {
-          id: 1,
-          name: 'Test 1',
-          selected: true,
-        },
-      ],
-    };
-    const action = {
-      type: TOGGLE_JURISDICTION,
-      id: 1,
-    };
+    const initialState = { jurisdictions: [{ id: 1, name: 'Test 1' }] };
+    const expectOutput = { jurisdictions: [{ id: 1, name: 'Test 1', selected: true }] };
+    const action = { type: TOGGLE_JURISDICTION, id: 1 };
+
     expect(jurisdictionFilter(initialState, action)).toEqual(expectOutput);
   });
 
   it('should handle RESET_JURISDICTIONS action', () => {
-    const previousState = {
-      jurisdictions: [
-        {
-          id: 1,
-          name: 'Test 1',
-          selected: false,
-        },
-      ],
-    };
+    const previousState = { jurisdictions: [{ id: 1, name: 'Test 1', selected: true }] };
+    const expectOutput = { jurisdictions: [{ id: 1, name: 'Test 1', selected: false }] };
+    const action = { type: RESET_JURISDICTIONS, id: 1 };
 
-    const expectOutput = {
-      jurisdictions: [
-        {
-          id: 1,
-          name: 'Test 1',
-          selected: false,
-        },
-      ],
-    };
-
-    const action = {
-      type: RESET_JURISDICTIONS,
-      id: 1,
-    };
     expect(jurisdictionFilter(previousState, action)).toEqual(expectOutput);
   });
 });

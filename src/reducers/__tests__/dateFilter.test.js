@@ -13,8 +13,8 @@ describe('Date Filter', () => {
   it('should handle MAP_DATE_FILTER_CHANGE action', () => {
     expect(dateFilter({ startDate, endDate }, {
       type: MAP_DATE_FILTER_CHANGE,
-      startDate: moment,
-      endDate: moment,
+      startDate,
+      endDate,
     })).toEqual({ startDate, endDate });
   });
 });

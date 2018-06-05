@@ -21,6 +21,7 @@ describe('Map Data Test', () => {
   it('should handle FETCH_MAP_DATA_COMPLETE action', () => {
     const previousState = { loading: true, dataFound: false };
     const expectOutput = { loading: false, dataFound: true };
+
     expect(mapData(previousState, {
       type: FETCH_MAP_DATA_COMPLETE,
       loading: false,
