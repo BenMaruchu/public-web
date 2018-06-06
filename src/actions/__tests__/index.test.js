@@ -25,9 +25,7 @@ const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
 
 describe('Actions', () => {
-
   describe('Synchoronus Actions', () => {
-
     it('should create an action to receive service request object', () => {
       const data = [1, 3, 2];
       const action = receiveServiceRequests(data);
