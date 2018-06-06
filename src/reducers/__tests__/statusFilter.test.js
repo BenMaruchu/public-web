@@ -1,22 +1,20 @@
 import reducer from '../statusFilter';
 import { RECEIVE_STATUSES, TOGGLE_STATUS, RESET_STATUSES, RECEIVE_SR_SUMMARY } from '../../actions/index';
 
-describe('statusFilter reducer', () => {
+describe('StatusFilter reducer', () => {
   it('should return the initial state', () => {
     const initialState = { statuses: [] };
+
     const action = {};
+
     const state = reducer(undefined, action);
+
     expect(state).toEqual(initialState);
+
+    expect(reducer(undefined, { type: RECEIVE_SR_SUMMARY, summary: { statuses: [] } }))
+      .toEqual(initialState);
   });
 
-  // test invalid action should return initial state
-  it('should handle RECEIVE_SR_SUMMARY', () => {
-    const prevState = { statuses: [] };
-
-    const action = { type: RECEIVE_SR_SUMMARY, summary: prevState };
-
-    expect(reducer(undefined, action)).toEqual(prevState);
-  });
 
   it('should handle RECEIVE_STATUSES', () => {
     const expectOutput = { statuses: [{ id: 1, name: 'faker' }] };
@@ -35,11 +33,15 @@ describe('statusFilter reducer', () => {
 
     expect(reducer(initialState, action)).toEqual(expectOutput);
   });
+
   it('should handle RESET_STATUSES', () => {
     const expectOutput = { statuses: [{ id: 1, name: 'unit', selected: false }] };
-    const initialState = { statuses: [{ id: 1, name: 'unit' }] };
+
+    const initialState = { statuses: [{ id: 1, name: 'unit', selected: true }] };
 
     const action = { type: RESET_STATUSES };
+
     expect(reducer(initialState, action)).toEqual(expectOutput);
   });
 });
+
