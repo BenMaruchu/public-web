@@ -1,3 +1,6 @@
+import fetchMock from 'fetch-mock';
+import thunk from 'redux-thunk';
+import configureMockStore from 'redux-mock-store';
 import {
   receiveServiceRequests, RECEIVE_SERVICEREQUESTS,
   receiveJurisdictions, RECEIVE_JURISDICTIONS,
@@ -12,9 +15,14 @@ import {
   searchTicketNum, SEARCH_TICKET_NUM,
   fetchMapData, FETCH_MAP_DATA,
   resetStatuses, RESET_STATUSES,
-  resetServices, RESET_SERVICES,
+  resetServices, RESET_SERVICES, reloadSRSummary,
 } from '../index';
 import { MAP_DATA_RELOAD } from '../../utils/constants';
+
+
+// configure mock store
+const middlewares = [thunk];
+const mockStore = configureMockStore(middlewares);
 
 describe('actions', () => {
   it('should create an action to receive service request object', () => {
@@ -109,5 +117,56 @@ describe('actions', () => {
     const action = toggleStatus(data);
     expect(action.type).toBe(TOGGLE_STATUS);
     expect(action.id).toBe(data);
+  });
+
+  describe('async actions', () => {
+    afterEach(() => {
+      fetchMock.reset();
+      fetchMock.restore();
+    });
+
+    it('should dispatch RECEIVE_SR_SUMMARY action when startDate and endDate are null', () => {
+      const url = 'api/reports/overviews';
+      const response = { name: 'test' };
+      fetchMock.getOnce(url, { body: response, headers: { 'content-type': 'application/json' } });
+
+      const store = mockStore({
+        summary: {},
+        dateFilter: {
+          startDate: null,
+          endDate: null,
+        },
+      });
+
+      const expectedAction = [{ type: RECEIVE_SR_SUMMARY, summary: response }];
+
+      return store.dispatch(reloadSRSummary()).then(() => {
+        expect(store.getActions()).toEqual(expectedAction);
+      });
+    });
+
+    it('should dispatch RECEIVE_SR_SUMMARY action when start date and end date are defined', () => {
+      const startDate = new Date();
+      const endDate = startDate;
+
+      const query = { createdAt: { $gte: endDate, $lte: startDate } };
+      const url = `api/reports/overviews?query=${JSON.stringify(query)}`;
+      const response = { name: 'test' };
+      fetchMock.getOnce(url, { body: response, headers: { 'content-type': 'application/json' } });
+
+      const store = mockStore({
+        summary: {},
+        dateFilter: {
+          startDate,
+          endDate,
+        },
+      });
+
+      const expectedAction = [{ type: RECEIVE_SR_SUMMARY, summary: response }];
+
+      return store.dispatch(reloadSRSummary()).then(() => {
+        expect(store.getActions()).toEqual(expectedAction);
+      });
+    });
   });
 });

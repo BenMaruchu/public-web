@@ -90,7 +90,7 @@ export const unselectMapPoint = () => ({ type: UNSELECT_MAP_POINT });
 
 export const reloadSRSummary = () => (dispatch, getState) => {
   const { startDate, endDate } = getState().dateFilter;
-  API
+  return API
     .getSRSummary(startDate, endDate)
     .then((data) => {
       dispatch(receiveSRSummary(data));
