@@ -105,6 +105,7 @@
     "roots": [
       "<rootDir>/src"
     ],
+    "verbose": true,
     "testEnvironment": "node",
     "testMatch": [
       "<rootDir>/src/**/__tests__/**/*.js?(x)",
