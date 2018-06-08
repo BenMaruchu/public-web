@@ -15,7 +15,7 @@ import jurisdictionFilter from './jurisdictionFilter';
 import mapData from './mapData';
 
 
-const selectedMapPoint = (state = null, action) => {
+export const selectedMapPoint = (state = null, action) => {
   switch (action.type) {
     case SELECT_MAP_POINT:
       return action.selected;
@@ -26,7 +26,7 @@ const selectedMapPoint = (state = null, action) => {
   }
 };
 
-const ticketNum = (state = '', action) => {
+export const ticketNum = (state = '', action) => {
   switch (action.type) {
     case SEARCH_TICKET_NUM:
       return action.ticketNum;
@@ -37,7 +37,7 @@ const ticketNum = (state = '', action) => {
   }
 };
 
-const SRSummary = (state = {}, action) => {
+export const SRSummary = (state = {}, action) => {
   switch (action.type) {
     case RECEIVE_SR_SUMMARY:
       return action.summary;
