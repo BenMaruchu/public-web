@@ -1,22 +1,8 @@
 import fetchMock from 'fetch-mock';
+import moment from 'moment';
 import thunk from 'redux-thunk';
 import configureMockStore from 'redux-mock-store';
-import {
-  receiveServiceRequests, RECEIVE_SERVICEREQUESTS,
-  receiveJurisdictions, RECEIVE_JURISDICTIONS,
-  receiveDateChange, MAP_DATE_FILTER_CHANGE,
-  receiveStatuses, RECEIVE_STATUSES,
-  receiveSRSummary, RECEIVE_SR_SUMMARY,
-  fetchMapDataComplete, FETCH_MAP_DATA_COMPLETE,
-  resetSearchTicketNum, SEARCH_TICKET_NUM_RESET,
-  toggleJurisdiction, TOGGLE_JURISDICTION,
-  toggleService, TOGGLE_SERVICE,
-  toggleStatus, TOGGLE_STATUS,
-  searchTicketNum, SEARCH_TICKET_NUM,
-  fetchMapData, FETCH_MAP_DATA,
-  resetStatuses, RESET_STATUSES,
-  resetServices, RESET_SERVICES, reloadSRSummary,
-} from '../index';
+import * as actions from '../index';
 import { MAP_DATA_RELOAD } from '../../utils/constants';
 
 
@@ -28,96 +14,120 @@ describe('Actions', () => {
   describe('Synchoronus Actions', () => {
     it('should create an action to receive service request object', () => {
       const data = [1, 3, 2];
-      const action = receiveServiceRequests(data);
-      expect(action.type).toBe(RECEIVE_SERVICEREQUESTS);
-      expect(action.serviceRequests).toEqual(data);
+      const expectedAction = {
+        type: actions.RECEIVE_SERVICEREQUESTS,
+        serviceRequests: data,
+      };
+      expect(actions.receiveServiceRequests(data)).toEqual(expectedAction);
     });
 
     it('should create an action to reset services', () => {
-      const action = resetServices();
-      expect(action.type).toBe(RESET_SERVICES);
+      const expectedAction = { type: actions.RESET_SERVICES };
+      expect(actions.resetServices()).toEqual(expectedAction);
     });
 
     it('should create an action to receive jurisdictions', () => {
       const data = {};
-      const action = receiveJurisdictions(data);
-      expect(action.type).toBe(RECEIVE_JURISDICTIONS);
-      expect(action.jurisdictions).toEqual(data);
+      const expectedAction = {
+        type: actions.RECEIVE_JURISDICTIONS,
+        jurisdictions: data,
+      };
+      expect(actions.receiveJurisdictions(data)).toEqual(expectedAction);
     });
 
     it('should create an action to receive status', () => {
       const data = {};
-      const action = receiveStatuses(data);
-      expect(action.type).toBe(RECEIVE_STATUSES);
-      expect(action.statuses).toEqual(data);
+      const expectedAction = {
+        type: actions.RECEIVE_STATUSES,
+        statuses: data,
+      };
+      expect(actions.receiveStatuses(data)).toEqual(expectedAction);
     });
 
     it('should create an action to reset status', () => {
-      const action = resetStatuses();
-      expect(action.type).toBe(RESET_STATUSES);
+      const expectedAction = { type: actions.RESET_STATUSES };
+      expect(actions.resetStatuses()).toEqual(expectedAction);
     });
 
     it('should create an action to to fetch map data', () => {
-      const action = fetchMapData();
-      expect(action.type).toBe(FETCH_MAP_DATA);
-      expect(action.loading).toBeTruthy();
-      expect(action.title).toBe(MAP_DATA_RELOAD);
+      const expectedAction = {
+        type: actions.FETCH_MAP_DATA,
+        loading: true,
+        title: MAP_DATA_RELOAD,
+      };
+      expect(actions.fetchMapData()).toEqual(expectedAction);
     });
 
     it('should create an action to to end fetching map data', () => {
-      const action = fetchMapDataComplete();
-      expect(action.type).toBe(FETCH_MAP_DATA_COMPLETE);
-      expect(action.loading).toBeFalsy();
-      expect(action.dataFound).toBeTruthy();
+      const expectedAction = {
+        type: actions.FETCH_MAP_DATA_COMPLETE,
+        loading: false,
+        dataFound: true,
+      };
+      expect(actions.fetchMapDataComplete()).toEqual(expectedAction);
     });
 
     it('should create an action to to receive SR summary', () => {
       const data = {};
-      const action = receiveSRSummary(data);
-      expect(action.type).toBe(RECEIVE_SR_SUMMARY);
-      expect(action.summary).toBe(data);
+      const expectedAction = {
+        type: actions.RECEIVE_SR_SUMMARY,
+        summary: data,
+      };
+      expect(actions.receiveSRSummary(data)).toEqual(expectedAction);
     });
 
     it('should create an action to receive SR summary', () => {
       const dateOne = '30-05-2018';
       const dateTwo = '29-05-2018';
-      const action = receiveDateChange(dateOne, dateTwo);
-      expect(action.type).toBe(MAP_DATE_FILTER_CHANGE);
-      expect(action.startDate).toBe(dateOne);
-      expect(action.endDate).toBe(dateTwo);
+      const expectedAction = {
+        type: actions.MAP_DATE_FILTER_CHANGE,
+        startDate: dateOne,
+        endDate: dateTwo,
+      };
+      expect(actions.receiveDateChange(dateOne, dateTwo)).toEqual(expectedAction);
     });
 
     it('should create an action to search tickeck number', () => {
       const data = {};
-      const action = searchTicketNum(data);
-      expect(action.type).toBe(SEARCH_TICKET_NUM);
-      expect(action.ticketNum).toEqual(data);
+      const expectedAction = {
+        type: actions.SEARCH_TICKET_NUM,
+        ticketNum: data,
+      };
+      expect(actions.searchTicketNum(data)).toEqual(expectedAction);
     });
 
     it('should create an action to reset searching tickect number', () => {
-      const action = resetSearchTicketNum();
-      expect(action.type).toBe(SEARCH_TICKET_NUM_RESET);
+      const expectedAction = {
+        type: actions.SEARCH_TICKET_NUM_RESET,
+      };
+      expect(actions.resetSearchTicketNum()).toEqual(expectedAction);
     });
 
     it('should create an action to to toggle Service ', () => {
       const data = 123;
-      const action = toggleService(data);
-      expect(action.type).toBe(TOGGLE_SERVICE);
-      expect(action.id).toBe(data);
+      const expectedAction = {
+        type: actions.TOGGLE_SERVICE,
+        id: data,
+      };
+      expect(actions.toggleService(data)).toEqual(expectedAction);
     });
 
     it('should create an action to to toggle Jurisdiction ', () => {
       const data = 123;
-      const action = toggleJurisdiction(data);
-      expect(action.type).toBe(TOGGLE_JURISDICTION);
-      expect(action.id).toBe(data);
+      const expectedAction = {
+        type: actions.TOGGLE_JURISDICTION,
+        id: data,
+      };
+      expect(actions.toggleJurisdiction(data)).toEqual(expectedAction);
     });
 
     it('should create an action to to toggle status ', () => {
       const data = 123;
-      const action = toggleStatus(data);
-      expect(action.type).toBe(TOGGLE_STATUS);
-      expect(action.id).toBe(data);
+      const expectedAction = {
+        type: actions.TOGGLE_STATUS,
+        id: data,
+      };
+      expect(actions.toggleStatus(data)).toEqual(expectedAction);
     });
   });
 
@@ -140,9 +150,9 @@ describe('Actions', () => {
         },
       });
 
-      const expectedAction = [{ type: RECEIVE_SR_SUMMARY, summary: response }];
+      const expectedAction = [{ type: actions.RECEIVE_SR_SUMMARY, summary: response }];
 
-      return store.dispatch(reloadSRSummary()).then(() => {
+      return store.dispatch(actions.reloadSRSummary()).then(() => {
         expect(store.getActions()).toEqual(expectedAction);
       });
     });
@@ -164,10 +174,62 @@ describe('Actions', () => {
         },
       });
 
-      const expectedAction = [{ type: RECEIVE_SR_SUMMARY, summary: response }];
+      const expectedAction = [{ type: actions.RECEIVE_SR_SUMMARY, summary: response }];
 
-      return store.dispatch(reloadSRSummary()).then(() => {
+      return store.dispatch(actions.reloadSRSummary()).then(() => {
         expect(store.getActions()).toEqual(expectedAction);
+      });
+    });
+
+    it('should dispatch SERVICE_REQUEST_RECEIVE action', () => {
+      const startDate = moment().subtract(1, 'months').startOf('date');
+      const endDate = moment();
+      const response = { servicerequests: [{ name: 'test' }] };
+
+      fetchMock.get('*', { body: response, headers: { 'content-type': 'application/json' } });
+
+      const expectedActions = [{
+        type: actions.RECEIVE_SERVICEREQUESTS,
+        serviceRequests: response.servicerequests,
+      },
+      {
+        type: actions.FETCH_MAP_DATA_COMPLETE,
+        loading: false,
+        dataFound: true,
+      },
+      ];
+      const store = mockStore({
+        serviceRequests: [],
+        dateFilter: {
+          startDate,
+          endDate,
+        },
+        serviceFilter: {
+          services: [],
+        },
+        jurisdictionFilter: {
+          jurisdictions: [],
+        },
+        statusFilter: {
+          statuses: [],
+        },
+        mapData: {
+          loading: false,
+          dataFound: true,
+        },
+        selectedMapPoint: null,
+        ticketNum: '',
+        SRSummary: {},
+        router: {
+          location: {
+            pathname: '/',
+            search: '',
+            hash: '',
+          },
+        },
+      });
+      return store.dispatch(actions.getServiceRequests(true)).then(() => {
+        expect(store.getActions()).toEqual(expectedActions);
       });
     });
   });

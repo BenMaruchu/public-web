@@ -130,7 +130,7 @@ export const getServiceRequests = showNoLoader => (dispatch, getState) => {
     };
   }
 
-  API
+  return API
     .getSR(query)
     .then((data) => {
       const serviceRequests = data.servicerequests;
